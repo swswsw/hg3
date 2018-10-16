@@ -12,14 +12,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://etherdelta.com/images/favicon.ico" rel="icon">
   <link href="./EtherDelta PPT_ETH_files/ie10-viewport-bug-workaround.css" rel="stylesheet">
-  <title>EtherDelta PPT/ETH</title>
+  <title>Fair Dex PPT/ETH</title>
 <link href="./EtherDelta PPT_ETH_files/main.48c4db1472180f20b6d0.css" rel="stylesheet"><script type="text/javascript" charset="utf-8" async="" src="./EtherDelta PPT_ETH_files/timeline.f814784bcfc7a37dfe1bcdacc08551af.js"></script></head>
 
 <body class="dark">
 
   <nav class="navbar navbar-light navbar-expand-lg">
     <a class="navbar-brand" href="https://etherdelta.com/">
-      Ether<span class="text-primary">Delta</span>
+      Fair<span class="text-primary">Dex</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -73,7 +73,7 @@
           </ul>
         </div>
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="buy"><form><div class="form-group"><label for="buyAmount" class="trn" data-trn-key="amount_to_buy">Amount to buy</label><div class="input-group"><input type="text" class="form-control form-control-sm" id="buyAmount"><div class="input-group-append"><span class="input-group-text">PPT</span></div></div></div><div class="form-group"><label for="buyPrice" class="trn" data-trn-key="price">Price</label><div class="input-group"><input type="text" class="form-control form-control-sm trn" id="buyPrice" data-trn-key=""><div class="input-group-append"><span class="input-group-text">ETH</span></div></div></div><div class="form-group"><label for="buyTotal" class="trn" data-trn-key="total">Total</label><input type="text" id="buyTotal" class="form-control form-control-sm" value="" readonly=""></div><div class="form-group"><label class="trn" for="buyExpires" data-toggle="tooltip" data-placement="bottom" title="" data-trn-key-title="expires_explanation" data-trn-key="expires" data-original-title="The number of Ethereum blocks until the order automatically expires. (14 seconds per block.)">Expires</label><div class="input-group"><input type="text" class="form-control form-control-sm" id="buyExpires" value="10000"><div class="input-group-append"><span class="input-group-text trn" data-trn-key="number_of_blocks">Blocks</span></div></div></div><span class="text-warning"></span><div class="form-group"><button type="button" class="btn btn-success btn-sm trn" data-trn-key="buy" style="width: 100%;">Buy Order</button></div></form></div>
+          <div role="tabpanel" class="tab-pane active" id="buy"><form><div class="form-group"><label for="buyAmount" class="trn" data-trn-key="amount_to_buy">Amount to buy</label><div class="input-group"><input type="text" class="form-control form-control-sm" id="buyAmount" value="100"><div class="input-group-append"><span class="input-group-text">PPT</span></div></div></div><div class="form-group"><label for="buyPrice" class="trn" data-trn-key="price">Price</label><div class="input-group"><input type="text" class="form-control form-control-sm trn" id="buyPrice" data-trn-key="" value="0.016"><div class="input-group-append"><span class="input-group-text">ETH</span></div></div></div><div class="form-group"><label for="buyTotal" class="trn" data-trn-key="total">Total</label><input type="text" id="buyTotal" class="form-control form-control-sm" value="1.6" readonly=""></div><div class="form-group"><label class="trn" for="buyExpires" data-toggle="tooltip" data-placement="bottom" title="" data-trn-key-title="expires_explanation" data-trn-key="expires" data-original-title="The number of Ethereum blocks until the order automatically expires. (14 seconds per block.)">Expires</label><div class="input-group"><input type="text" class="form-control form-control-sm" id="buyExpires" value="10000"><div class="input-group-append"><span class="input-group-text trn" data-trn-key="number_of_blocks">Blocks</span></div></div></div><span class="text-warning"></span><div class="form-group"><button id="btnBuyOrder" type="button" class="btn btn-success btn-sm trn" data-trn-key="buy" style="width: 100%;">Buy Order</button></div></form></div>
           <div role="tabpanel" class="tab-pane" id="sell"><form><div class="form-group"><label for="sellAmount" class="trn" data-trn-key="amount_to_sell">Amount to sell</label><div class="input-group"><input type="text" class="form-control form-control-sm" id="sellAmount"><div class="input-group-append"><span class="input-group-text">PPT</span></div></div></div><div class="form-group"><label for="sellPrice" class="trn" data-trn-key="price">Price</label><div class="input-group"><input type="text" class="form-control form-control-sm trn" id="sellPrice" data-trn-key=""><div class="input-group-append"><span class="input-group-text">ETH</span></div></div></div><div class="form-group"><label for="sellTotal" class="trn" data-trn-key="total">Total</label><input type="text" class="form-control form-control-sm" id="sellTotal" value="" readonly=""></div><div class="form-group"><label class="trn" for="sellExpires" data-toggle="tooltip" data-placement="bottom" title="" data-trn-key-title="expires_explanation" data-trn-key="expires" data-original-title="The number of Ethereum blocks until the order automatically expires. (14 seconds per block.)">Expires</label><div class="input-group"><input type="text" class="form-control form-control-sm trn" id="sellExpires" value="10000" data-trn-key=""><div class="input-group-append"><span class="input-group-text trn" data-trn-key="number_of_blocks">Blocks</span></div></div></div><span class="text-warning"></span><div class="form-group"><button type="button" class="btn btn-danger btn-sm trn" data-trn-key="sell" style="width: 100%;">Sell Order</button></div></form></div>
         </div>
       </div>
@@ -202,10 +202,9 @@
       activationElement: false
     };
 
-    var container = document.getElementById('orderBookScrolltable');
-    var rowToScrollTo = document.getElementById('scrollrow');
-    container.scrollTop = rowToScrollTo.offsetTop;
-
+    $('#btnBuyOrder').click(function() {
+      
+    });
   </script>
   <script src="./EtherDelta PPT_ETH_files/sidecar.v1.js" async="" defer=""></script>
 <script type="text/javascript" src="./EtherDelta PPT_ETH_files/main.48c4db1472180f20b6d0.js"></script><aside class="gitter-chat-embed is-collapsed"><div class="gitter-chat-embed-action-bar"><a class="gitter-chat-embed-action-bar-item gitter-chat-embed-action-bar-item-pop-out" aria-label="Open Chat in Gitter.im" href="https://gitter.im/etherdelta/etherdelta.github.io" target="_blank"></a><button class="gitter-chat-embed-action-bar-item gitter-chat-embed-action-bar-item-collapse-chat" aria-label="Collapse Gitter Chat"></button></div><div class="gitter-chat-embed-loading-wrapper">
