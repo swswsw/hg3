@@ -57,7 +57,7 @@
   <div class="trading-cont">
     <div class="vertical-split">
       <div class="component">
-        <div class="component-header trn" data-trn-key="balance">Balance</div>
+        <div class="component-header trn">Balance <span id="txtBalance">(0 PPT / 21 ETH)</div>
         <div id="balance"><div class="component-tabs nav-header"><ul class="nav" role="tablist"><li role="presentation" class="nav-item"><a href="https://etherdelta.com/#deposit" aria-controls="deposit" role="tab" data-toggle="tab" class="active nav-link trn" data-trn-key="deposit" data-original-title="" title="">Deposit</a></li><li role="presentation" class="nav-item"><a href="https://etherdelta.com/#withdraw" aria-controls="withdraw" role="tab" data-toggle="tab" class="nav-link trn" data-trn-key="withdraw" data-original-title="" title="">Withdraw</a></li><li role="presentation" class="nav-item"><a href="https://etherdelta.com/#transfer" aria-controls="transfer" role="tab" data-toggle="tab" class="nav-link trn" data-trn-key="transfer" data-original-title="" title="">Transfer</a></li></ul></div><div><p class="text-danger trn" data-trn-key="please_select_account">Please select an account using the account dropdown in the upper right.</p></div></div>
       </div>
       <div class="component">
@@ -203,6 +203,12 @@
     };
 
     $('#btnBuyOrder').click(function() {
+      setTimeout(function(){ 
+        $('#txtBalance').text("(100 PPT/19.4 ETH)"); 
+        $('#buyAmount').val("200");
+        $('#buyPrice').val("0.017");
+        $('#buyTotal').val("3.4");
+      }, 500);
       
     });
   </script>
